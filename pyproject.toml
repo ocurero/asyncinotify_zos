@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "asyncinotify-zos"
+version = "0.1.0"
+description = "This package provides a native XPLINK wrapper that exposes the inotify_* symbols required by asyncinotify"
+authors = ["Oscar Curero <dev@curero.es>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+packages = [{include = "asyncinotify_zos"}]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
