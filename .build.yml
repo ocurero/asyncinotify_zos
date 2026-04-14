@@ -13,6 +13,6 @@ sources:
 tasks:
 - sync_to_github: |
     cd openbm
-    git git+ssh://git@github.com/ocurero/asyncinotify_zos.git
+    git push --mirror git+ssh://git@github.com/ocurero/asyncinotify_zos.git
 
 triggers: null
