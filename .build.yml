@@ -3,10 +3,11 @@ artifacts: null
 environment: null
 image: alpine/old
 packages:
-- findutils
+- poetry
 repositories: null
 secrets:
-- 60c74018-5d43-4a31-9bec-55c59e80f0b9
+- 60c74018-5d43-4a31-9bec-55c59e80f0b9 # github ssh key
+- 4e501fae-54d9-46ab-aaea-abad07526be1 # pypi token
 shell: null
 sources:
 - git@git.sr.ht:~ocurero/asyncinotify_zos
@@ -15,14 +16,12 @@ tasks:
     ssh-keyscan github.com >> ~/.ssh/known_hosts
     cd asyncinotify_zos
     git push --mirror git+ssh://git@github.com/ocurero/asyncinotify_zos.git
-
 - publish_pypi: |
     # Only in tags
     if [[ "$GIT_REF" =~ ^refs/tags/ ]]; then
-      ssh-keyscan -H github.com >> ~/.ssh/known_hosts  # Si sync también en tags
+      poetry config pypi-token.pypi "$(cat ~/PYPI_TOKEN)"
       cd asyncinotify_zos
-      python -m pip install build twine
-      python -m build
-      twine upload -u __token__ -p $PYPI_TOKEN dist/*
+      poetry build --format sdist
+      poetry publish 
     fi
 triggers: null
