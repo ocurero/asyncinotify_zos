@@ -12,7 +12,17 @@ sources:
 - git@git.sr.ht:~ocurero/asyncinotify_zos
 tasks:
 - sync_to_github: |
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
     cd asyncinotify_zos
     git push --mirror git+ssh://git@github.com/ocurero/asyncinotify_zos.git
 
+- publish_pypi: |
+    # Only in tags
+    if [[ "$GIT_REF" =~ ^refs/tags/ ]]; then
+      ssh-keyscan -H github.com >> ~/.ssh/known_hosts  # Si sync también en tags
+      cd asyncinotify_zos
+      python -m pip install build twine
+      python -m build
+      twine upload -u __token__ -p $PYPI_TOKEN dist/*
+    fi
 triggers: null
