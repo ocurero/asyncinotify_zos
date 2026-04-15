@@ -1,7 +1,7 @@
 asyncinotify wrapper for z/OS
 =============================
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![builds.sr.ht status](https://builds.sr.ht/~ocurero/asyncinotify_zos/.build.yml.svg)](https://builds.sr.ht/~ocurero/asyncinotify_zos/.build.yml?) [z/OS](https://img.shields.io/badge/works%20on-z/OS-8A2BE2)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![builds.sr.ht status](https://builds.sr.ht/~ocurero/asyncinotify_zos/.build.yml.svg)](https://builds.sr.ht/~ocurero/asyncinotify_zos/.build.yml?) ![z/OS](https://img.shields.io/badge/works%20on-z/OS-8A2BE2)
 
 Due to z/OS-specific DLL constraints, asyncinotify needs this tiny wrapper written in C.
 
