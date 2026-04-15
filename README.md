@@ -1,7 +1,7 @@
 asyncinotify wrapper for z/OS
 =============================
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![builds.sr.ht status](https://builds.sr.ht/~ocurero/asyncinotify_zos/.build.yml.svg)](https://builds.sr.ht/~ocurero/asyncinotify_zos/.build.yml?) [![z/OS](https://img.shields.io/badge/works%20on-z/OS-8A2BE2)]
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![builds.sr.ht status](https://builds.sr.ht/~ocurero/asyncinotify_zos/.build.yml.svg)](https://builds.sr.ht/~ocurero/asyncinotify_zos/.build.yml?) [z/OS](https://img.shields.io/badge/works%20on-z/OS-8A2BE2)
 
 Due to z/OS-specific DLL constraints, asyncinotify needs this tiny wrapper written in C.
 
@@ -28,6 +28,7 @@ Why is it needed?
 -----------------
 
 Python can load C functions from files in the Unix filesystem hierarchy. Unfortunately, on z/OS most functions are not located in Unix files but in MVS data sets. As of April 2026, Python is not able to load functions directly from MVS data sets.
+
 There is an idea ([PY-I-14](https://ideas.ibm.com/ideas/PY-I-14)) already opened for IBM to implement an alternative loader so that Python can load functions from MVS data sets. Once this functionality is implemented, this wrapper will no longer be necessary. Note that this will also require modifications to asyncinotify upstream package.
 
 
