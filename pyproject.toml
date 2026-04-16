@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "asyncinotify-zos"
-version = "0.2.1"
+version = "0.2.5"
 description = "This package provides a native XPLINK wrapper for z/OS that exposes the inotify_* symbols required by asyncinotify"
 authors = ["Oscar Curero <oscar@curero.es>"]
 license = "GPL-3.0-or-later"
