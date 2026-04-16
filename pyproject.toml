@@ -5,14 +5,25 @@ description = "This package provides a native XPLINK wrapper for z/OS that expos
 authors = ["Oscar Curero <oscar@curero.es>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
-packages = [{include = "asyncinotify_zos"}]
+packages = [
+    { include = "asyncinotify_zos", from = "src" }
+]
+
+include = [
+    { path = "src/*.c", format = "sdist" }
+]
 
 [tool.poetry.dependencies]
 python = ">=3.12,<4"
+asyncinotify = "^4.4.4"
 
 [tool.poetry.group.dev.dependencies]
 build = "^1.2.1"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=1.0.0", "setuptools"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.build]
+script = "scripts/build_extension.py"
+generate-setup-file = true
